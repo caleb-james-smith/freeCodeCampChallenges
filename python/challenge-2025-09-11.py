@@ -6,13 +6,24 @@ def reverse_sentence(sentence):
 
 def test_io(input):
     output = reverse_sentence(input)
-    print("Testing reverse_sentence:")
     print(f" - input: {input}")
     print(f" - output: {output}")
 
+def run_tests(inputs):
+    print("Running tests...")
+    for i, input in enumerate(inputs, start=1):
+        print(f"Test {i}:")
+        test_io(input)
+    print("Testing complete!")
+
 def main():
-    test_io("world hello")
-    test_io("push commit git")
+    inputs = [
+        "world hello",
+        "push commit git",
+        "npm  install   apt    sudo",
+        "import    default   function  export"
+    ]
+    run_tests(inputs)
 
 if __name__ == "__main__":
     main()
