@@ -13,10 +13,9 @@ function test_io(input) {
 
 function run_tests(inputs) {
   console.log("Running tests...");
-  // FIXME: Start with test number 1.
   for (let i = 0; i < inputs.length; i++) {
-    // FIXME: Print number as white (not yellow) and remove space between number and colon.
-    console.log("Test", i, ":");
+    let n = i + 1;
+    console.log("Test %d:", n);
     test_io(inputs[i]);
   }
   console.log("Testing complete!");
