@@ -1,23 +1,35 @@
 function reverseSentence(sentence) {
   const word_list = sentence.split(/\s+/);
-  // console.log("word_list (1):", word_list);
   word_list.reverse();
-  // console.log("word_list (2):", word_list);
   let result = word_list.join(" ");
-  // console.log("result:", result);
   return result;
 }
 
 function test_io(input) {
   let output = reverseSentence(input);
-  console.log("Testing reverseSentence:");
   console.log(" - input:", input);
   console.log(" - output:", output);
 }
 
+function run_tests(inputs) {
+  console.log("Running tests...");
+  // FIXME: Start with test number 1.
+  for (let i = 0; i < inputs.length; i++) {
+    // FIXME: Print number as white (not yellow) and remove space between number and colon.
+    console.log("Test", i, ":");
+    test_io(inputs[i]);
+  }
+  console.log("Testing complete!");
+}
+
 function main() {
-  test_io("world hello");
-  test_io("push commit git");
+  const inputs = [
+    "world hello",
+    "push commit git",
+    "npm  install   apt    sudo",
+    "import    default   function  export"
+  ];
+  run_tests(inputs);
 }
 
 if (require.main == module) {
