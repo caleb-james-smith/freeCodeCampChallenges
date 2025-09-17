@@ -33,3 +33,18 @@ def getTodayDate(date_format="%Y-%m-%d"):
     today_date_object = datetime.datetime.today()
     today_date = today_date_object.strftime(date_format)
     return today_date
+
+# add date to file name
+def addDateToFileName(original_file_name):
+    print("Adding date to file name...")
+
+    today_date = getTodayDate()
+    today_date = today_date.replace("-", "_")
+    file_base, file_extension = os.path.splitext(original_file_name)
+    new_file_name = f"{file_base}_{today_date}{file_extension}"
+    
+    print(f" - today's date: {today_date}")
+    print(f" - original file name: {original_file_name}")
+    print(f" - new file name: {new_file_name}")
+    
+    return new_file_name
