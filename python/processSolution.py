@@ -18,8 +18,7 @@ def main():
     processSolution(solution_file, download_dir, challenge_date, language)
 
 def processSolution(solution_file, download_dir, challenge_date, language):
-    # If code_dir is always equal to language, we do not need getCodeDir(language).
-    code_dir    = getCodeDir(language)
+    code_dir    = language
     extension   = getExtension(language)
     
     download_dir    = tools.appendSlash(download_dir)
@@ -33,20 +32,6 @@ def processSolution(solution_file, download_dir, challenge_date, language):
 
     tools.makeDir(code_dir)
     tools.moveFile(source_file, destination_file)
-
-def getCodeDir(language):
-    result = None
-    directories = {
-        "python"        : "python",
-        "javascript"    : "javascript"
-    }
-    try:
-        result = directories[language]
-    except KeyError:
-        print(f"KeyError in getCodeDir: Did not find the language '{language}'.")
-        sys.exit(1)
-    
-    return result
 
 def getExtension(language):
     result = None
