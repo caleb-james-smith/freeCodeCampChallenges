@@ -3,6 +3,7 @@
 import tools
 import sys
 import argparse
+from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -13,9 +14,10 @@ def main():
     challenge_date          = options.challenge_date
     programming_language    = options.programming_language
 
+    home_dir = Path.home()
+
     solution_file   = "undefined.txt"
-    # Make home directory general to work for any user
-    download_dir    = "/Users/caleb/Downloads"
+    download_dir    = f"{home_dir}/Downloads"
     
     if not challenge_date:
         print("Please provide a challenge date (YYYY-MM-DD) using the -d option.")
@@ -32,6 +34,12 @@ def main():
 
     if programming_language == "js":
         programming_language = "javascript"
+
+    print("Processing solution file...")
+    print(f" - home_dir: {home_dir}")
+    print(f" - download_dir: {download_dir}")
+    print(f" - challenge_date: {challenge_date}")
+    print(f" - programming_language: {programming_language}")
 
     processSolution(solution_file, download_dir, challenge_date, programming_language)
 
