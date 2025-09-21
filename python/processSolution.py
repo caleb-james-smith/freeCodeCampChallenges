@@ -58,8 +58,23 @@ def processSolution(solution_file, download_dir, challenge_date, programming_lan
 
     tools.makeDir(code_dir)
     tools.moveFile(source_file, destination_file)
+    removeExtraLines(destination_file)
 
     print("Done!")
+
+def removeExtraLines(file_name):
+    print("Removing extra lines...")
+    tag = "**"
+    with open(file_name, "r") as f:
+        lines = f.readlines()
+    with open(file_name, "w") as f:
+        for line in lines:
+            stripped_line = line.strip()
+            if stripped_line.startswith(tag) and stripped_line.endswith(tag):
+                print("Removing line:")
+                print(line, end="")
+                continue
+            f.write(line)
 
 if __name__ == "__main__":
     main()
