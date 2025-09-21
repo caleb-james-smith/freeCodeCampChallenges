@@ -22,16 +22,16 @@ def moveFile(source_file, destination_file):
         sys.exit(1)
 
 # get file extension based on programming language
-def getExtension(language):
+def getExtension(programming_language):
     result = None
     extensions = {
         "python"        : "py",
         "javascript"    : "js"
     }
     try:
-        result = extensions[language]
+        result = extensions[programming_language]
     except KeyError:
-        print(f"KeyError in getExtension: Did not find the language '{language}'.")
+        print(f"KeyError in getExtension: Did not find the programming language '{programming_language}'.")
         sys.exit(1)
     
     return result
