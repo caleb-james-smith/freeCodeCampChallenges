@@ -7,7 +7,7 @@ def main():
     solution_file   = "undefined.txt"
     download_dir    = "/Users/caleb/Downloads"
     challenge_date  = "2000-01-01"
-    language        = "py"
+    language        = "js"
 
     if language == "py":
         language = "python"
@@ -19,7 +19,7 @@ def main():
 
 def processSolution(solution_file, download_dir, challenge_date, language):
     code_dir    = language
-    extension   = getExtension(language)
+    extension   = tools.getExtension(language)
     
     download_dir    = tools.appendSlash(download_dir)
     code_dir        = tools.appendSlash(code_dir)
@@ -32,20 +32,6 @@ def processSolution(solution_file, download_dir, challenge_date, language):
 
     tools.makeDir(code_dir)
     tools.moveFile(source_file, destination_file)
-
-def getExtension(language):
-    result = None
-    extensions = {
-        "python"        : "py",
-        "javascript"    : "js"
-    }
-    try:
-        result = extensions[language]
-    except KeyError:
-        print(f"KeyError in getExtension: Did not find the language '{language}'.")
-        sys.exit(1)
-    
-    return result
 
 if __name__ == "__main__":
     main()
