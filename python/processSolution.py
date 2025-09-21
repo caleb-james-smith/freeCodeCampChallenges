@@ -2,12 +2,28 @@
 
 import tools
 import sys
+import argparse
 
 def main():
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument("--challenge_date", "-d", default="", help="Challenge date (YYYY-MM-DD)")
+    parser.add_argument("--language",       "-l", default="", help="Programming language")
+
+    options         = parser.parse_args()
+    challenge_date  = options.challenge_date
+    language        = options.language
+
     solution_file   = "undefined.txt"
+    # Make home directory general to work for any user
     download_dir    = "/Users/caleb/Downloads"
-    challenge_date  = "2000-01-01"
-    language        = "js"
+    
+    if not challenge_date:
+        print("Please provide a challenge date (YYYY-MM-DD) using the -d option.")
+        sys.exit(1)
+
+    if not language:
+        print("Please provide a programming language using the -l option.")
+        sys.exit(1)
 
     if language == "py":
         language = "python"
