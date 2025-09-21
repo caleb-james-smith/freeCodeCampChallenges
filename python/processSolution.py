@@ -25,6 +25,8 @@ def main():
         print("Please provide a programming language using the -l option.")
         sys.exit(1)
 
+    programming_language = programming_language.lower()
+
     if programming_language == "py":
         programming_language = "python"
 
