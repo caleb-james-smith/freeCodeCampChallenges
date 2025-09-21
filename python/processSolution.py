@@ -35,15 +35,15 @@ def main():
     if programming_language == "js":
         programming_language = "javascript"
 
+    processSolution(solution_file, download_dir, challenge_date, programming_language)
+
+def processSolution(solution_file, download_dir, challenge_date, programming_language):
     print("Processing solution file...")
-    print(f" - home_dir: {home_dir}")
+    print(f" - solution_file: {solution_file}")
     print(f" - download_dir: {download_dir}")
     print(f" - challenge_date: {challenge_date}")
     print(f" - programming_language: {programming_language}")
 
-    processSolution(solution_file, download_dir, challenge_date, programming_language)
-
-def processSolution(solution_file, download_dir, challenge_date, programming_language):
     code_dir    = programming_language
     extension   = tools.getExtension(programming_language)
     
@@ -58,6 +58,8 @@ def processSolution(solution_file, download_dir, challenge_date, programming_lan
 
     tools.makeDir(code_dir)
     tools.moveFile(source_file, destination_file)
+
+    print("Done!")
 
 if __name__ == "__main__":
     main()
