@@ -8,7 +8,7 @@ class CodeTester:
         self.tests  = tests
 
     def runTests(self):
-        print("Running tests...")
+        print("Running test(s)...")
 
         n_tests = len(self.tests)
         n_passed = 0
@@ -24,7 +24,7 @@ class CodeTester:
                 print(Fore.RED + f"Test {i}: FAIL" + Fore.RESET)
                 n_failed += 1
         
-        print(f"Ran {n_tests} tests: {n_passed} passed and {n_failed} failed.")
+        print(f"Ran {n_tests} test(s): {n_passed} passed and {n_failed} failed.")
         print("Testing complete!")
 
     def runTest(self, test):
