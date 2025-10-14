@@ -1,6 +1,8 @@
 from CodeTester import CodeTester
 
 def check_strength(password):
+    print(f"password: {password}")
+
     letters = "abcdefghijklmnopqrstuvwxyz"
     letters_lower = letters.lower()
     letters_upper = letters.upper()
@@ -28,8 +30,12 @@ def check_strength(password):
             contains_lower = True
         if x in letters_upper:
             contains_upper = True
-        if int(x) in numbers:
-            contains_number = True
+        try:
+            x_int = int(x)
+            if x_int in numbers:
+                contains_number = True
+        except ValueError:
+            print(f"ValueError: Cannot convert '{x}' to int.")
         if x in special_characters:
             contains_special_character = True
 
@@ -46,6 +52,7 @@ def check_strength(password):
     num_rules_passed = sum(passed_rules_int)
     result = num_rules_to_strength[num_rules_passed]
 
+    print(f"result: {result}")
     return result
 
 def main():
