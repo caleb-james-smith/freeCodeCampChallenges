@@ -18,10 +18,10 @@ class CodeTester:
             print(f"Test {i}:")
             test_passed = self.runTest(test)
             if test_passed:
-                print(Fore.GREEN + f"Test {i}: PASS" + Fore.RESET)
+                print(Fore.GREEN + f" - result:      PASS" + Fore.RESET)
                 n_passed += 1
             else:
-                print(Fore.RED + f"Test {i}: FAIL" + Fore.RESET)
+                print(Fore.RED + f" - result:      FAIL" + Fore.RESET)
                 n_failed += 1
         
         print(f"Ran {n_tests} test(s): {n_passed} passed and {n_failed} failed.")
