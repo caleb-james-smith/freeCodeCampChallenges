@@ -57,7 +57,21 @@ def main():
         {"input"    : "123456",
          "expected" : "weak"},
         {"input"    : "pass!!!",
-         "expected" : "weak"}
+         "expected" : "weak"},
+        {"input"    : "Qwerty",
+         "expected" : "weak"},
+        {"input"    : "PASSWORD",
+         "expected" : "weak"},
+        {"input"    : "PASSWORD!",
+         "expected" : "medium"},
+        {"input"    : "PassWord%^!",
+         "expected" : "medium"},
+        {"input"    : "qwerty12345",
+         "expected" : "medium"},
+        {"input"    : "S3cur3P@ssw0rd",
+         "expected" : "strong"},
+        {"input"    : "C0d3&Fun!",
+         "expected" : "strong"}
     ]
     tester = CodeTester(check_strength, tests)
     tester.runTests()
