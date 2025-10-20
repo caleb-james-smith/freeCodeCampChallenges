@@ -1,3 +1,4 @@
+from CodeTester import CodeTester
 
 def containsExactlyOne(string, character):
     n_matches = 0
@@ -51,7 +52,7 @@ def validate(email):
 
     # domain
 
-    domain_end_allowed_charatcters = letters_lower + letters_upper
+    domain_end_allowed_characters = letters_lower + letters_upper
 
     if "." not in domain:
         return False
@@ -62,7 +63,7 @@ def validate(email):
     domain_split = domain.split(".")
     domain_end = domain_split[-1]
 
-    domain_end_contains_allowed_characters = containsOnly(domain_end, domain_end_allowed_charatcters)
+    domain_end_contains_allowed_characters = containsOnly(domain_end, domain_end_allowed_characters)
 
     if not domain_end_contains_allowed_characters:
         return False
@@ -72,5 +73,29 @@ def validate(email):
 
     return True
 
+def main():
+    tests = [
+        {"input"    : "a@b.cd",
+         "expected" : True},
+        {"input"    : "hell.-w.rld@example.com",
+         "expected" : True},
+        {"input"    : ".b@sh.rc",
+         "expected" : False},
+        {"input"    : "example@test.c0",
+         "expected" : False},
+        {"input"    : "freecodecamp.org",
+         "expected" : False},
+        {"input"    : "develop.ment_user@c0D!NG.R.CKS",
+         "expected" : True},
+        {"input"    : "hello.@wo.rld",
+         "expected" : False},
+        {"input"    : "hello@world..com",
+         "expected" : False},
+        {"input"    : "git@commit@push.io",
+         "expected" : False}
+    ]
+    tester = CodeTester(validate, tests)
+    tester.runTests()
 
-
+if __name__ == "__main__":
+    main()
