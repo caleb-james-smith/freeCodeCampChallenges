@@ -4,8 +4,8 @@ def check_strength(password):
     letters = "abcdefghijklmnopqrstuvwxyz"
     letters_lower = letters.lower()
     letters_upper = letters.upper()
-    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    special_characters = ["!", "@", "#", "$", "%", "^", "&", "*"]
+    numbers = "0123456789"
+    special_characters = "!@#$%^&*"
 
     passed_rules = 4 * [False]
     num_rules_to_strength = {
@@ -28,12 +28,8 @@ def check_strength(password):
             contains_lower = True
         if x in letters_upper:
             contains_upper = True
-        try:
-            x_int = int(x)
-            if x_int in numbers:
-                contains_number = True
-        except ValueError:
-            pass
+        if x in numbers:
+            contains_number = True
         if x in special_characters:
             contains_special_character = True
 
