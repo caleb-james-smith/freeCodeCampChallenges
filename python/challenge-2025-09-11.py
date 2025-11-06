@@ -6,8 +6,8 @@ def reverse_sentence(sentence):
 
 def test_io(input):
     output = reverse_sentence(input)
-    print(f" - input: {input}")
-    print(f" - output: {output}")
+    print(f" - input:   {input}")
+    print(f" - output:  {output}")
 
 def run_tests(inputs):
     print("Running tests...")
