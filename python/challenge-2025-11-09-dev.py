@@ -23,6 +23,7 @@ def find_word(inputs):
             j2 = len(row_reversed) - column_indices[1] - 1
             result = [[i, j1], [i, j2]]
             return result
+    # search columns of the original by searching rows of the transpose
     matrix_transposed = transpose(matrix)
     n_rows = len(matrix_transposed)
     for i in range(n_rows):
